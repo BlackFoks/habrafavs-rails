@@ -13,6 +13,14 @@ ru:
         user:
           attributes:
             name:
-              blank: "Логин не может быть пустым"
+              blank: "не может быть пустым"
             email:
-              blank: "E-mail не может быть пустым"
+              blank: "не может быть пустым"
+            password:
+              blank: "не может быть пустым"
+              confirmation: "Пароли должны быть одинаковые"
+              too_short: "слишком короткий"
+  
+  errors:
+    messages:
+      not_saved: "Ошибка(и) при сохранении"
