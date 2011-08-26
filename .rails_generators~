@@ -27,6 +27,55 @@ scss:scaffold:
 - --skip
 - --skip-namespace
 - --old-style-hash
+active_record:devise:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+devise:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --orm=
+devise:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --orm=
+devise:shared_views:
+- --force
+- --pretend
+- --quiet
+- --skip
+devise:form_for:
+- --force
+- --pretend
+- --quiet
+- --skip
+devise:simple_form_for:
+- --force
+- --pretend
+- --quiet
+- --skip
+devise:views:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --form-builder=
+mongoid:devise:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
 coffee:assets:
 - --force
 - --pretend
