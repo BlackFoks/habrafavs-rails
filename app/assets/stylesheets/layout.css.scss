@@ -1,7 +1,15 @@
 .topbar-wrapper { margin-bottom: 50px; }
 .topbar form { margin-right: 8px; }
 
-.messages {  
+.messages {
   position: fixed;
   right: 20px;
+}
+
+.another.actions {
+  margin-top: 0;
+}
+
+div.input span {
+  padding-left: 10px;
 }

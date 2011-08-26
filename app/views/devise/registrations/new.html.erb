@@ -1,16 +1,25 @@
-<div class="row"><div class="span14 columns offset1">
-  <h2>Регистрация</h2>
+<div class="row">
+<div class="span14 columns offset1">
+
+<h2>Регистрация</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <fieldset>
-    <%= f.text_field :name %>
-    <%= f.email_field :email %>
-    <%= f.password_field :password %>
-    <%= f.password_field :password_confirmation %>
+<fieldset>
+  <%= f.text_field :name %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
 
-    <p><%= f.submit "Sign up" %></p>
-  </fieldset>
+  <div class="actions">
+    <%= f.submit "Sign up", :class => "btn primary" %>
+  </div>
+</fieldset>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %></div></div>
+<h6>Другие действия:</h6>
+<div class="another actions">
+  <%= render :partial => "devise/shared/links" %>
+</div>
+
+</div>
+</div>
