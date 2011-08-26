@@ -1,0 +1,18 @@
+ru:
+  helpers:
+    label:
+      user:
+        name: "Логин"
+        email: "E-mail:"
+        password: "Пароль"
+        password_confirmation: "Повторите пароль"
+        
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Логин не может быть пустым"
+            email:
+              blank: "E-mail не может быть пустым"
