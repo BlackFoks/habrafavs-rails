@@ -37,6 +37,25 @@
 </div>
 
 <div class="container">
+  <div class="messages">
+  <% if notice %>
+    <div class="row">      
+      <div class="alert-message info span6 columns offset10">
+        <a class="close" href="#">×</a>
+        <p><%= notice %></p>
+      </div>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="row">
+      <div class="alert-message error span6 columns offset10">
+        <a class="close" href="#">×</a>
+        <p><%= alert %></p>
+      </div>      
+    </div>
+  <% end %>
+  </div>
+  
   <%= yield %>
 </div>
 

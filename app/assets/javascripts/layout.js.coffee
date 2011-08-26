@@ -1,6 +1,7 @@
 # scripts for the whool app
 
 jQuery(document).ready ->
+  # click on the menu on the topbar
   $("a.menu").click ->
     # get objects
     target = $(this)
@@ -19,4 +20,10 @@ jQuery(document).ready ->
     # hide
     parentSiblings.children("ul.menu-dropdown").hide()
     parentSiblings.removeClass("open")
+    false
+    
+  # close message
+  $(".close").click ->
+    parent = $(this).parent("div")
+    parent.fadeOut()
     false
