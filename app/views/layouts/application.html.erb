@@ -1,14 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru-RU">
 <head>
-  <title>HabrafavsRails</title>
+  <title>Habrafavs</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<!-- TopBar -->
+<div class="topbar-wrapper" style="z-index: 5;">
+  <div class="topbar">
+    <div class="container fixed">
+      <h3><a href="#">Habrafavs</a></h3>
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Посты</a></li>
+        <li><a href="#">Блоги</a></li>
+      </ul>
+      
+      <ul class="nav secondary-nav">
+        <form action="#">
+          <input type="text" placeholder="Поиск">
+        </form>      
+        <li class="menu">
+          <a href="#" class="menu">BlackFoks</a>
+          <ul class="menu-dropdown">
+            <li><a href="#">Профиль</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Выход</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+<footer>
+  <div class="inner">
+    <div class="container">
+      <p class="right">&copy; blackfoks, 2011</p>
+      <p>
+        Создано только благодаря <a href="http://habrahabr.ru">Хабрахабру</a>, а так же
+        замечательному проекту <a href="#">bootstrap</a>.
+      </p>        
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
