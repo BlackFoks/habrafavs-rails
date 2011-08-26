@@ -1,0 +1,5 @@
+$body_color: yellow;
+
+body {
+  color: darken($body_color, 20%);
+}
