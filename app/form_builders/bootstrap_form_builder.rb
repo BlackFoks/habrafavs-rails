@@ -1,3 +1,4 @@
+# Form builder for Bootstrap css framework
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def initialize(object_name, object, template, options, proc)
     super(object_name, object, template, options, proc)
@@ -13,9 +14,9 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     alias_method orig_method_name, method_name
     # define new method
     define_method(method_name) do |*args|
-      method = args[0]
-      options = args[1] || {}
-      wrap_field(orig_method_name, method, options)
+      method = args[0] # get model method name
+      options = args[1] || {} # get options
+      wrap_field(orig_method_name, method, options) # wrap original field
     end
   end
 
@@ -24,6 +25,14 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   # * wraps field and label into div.clearfix
   # * supports inline error messages
   # * supports error styling
+  # At the output generates following code (for text_field):
+  # <div class="clearfix error">
+  #   <label for="user_name">Name</label>
+  #   <div class="input">
+  #     <input class="error" id="user_name" name="user[name]" size="30" type="text" value="">
+  #     <span class="help-inline">не может быть пустым</span>
+  #   </div>
+  # </div>
   def wrap_field(orig_method_name, method, options = {})
     # get orig method
     orig_method = self.method(orig_method_name)
@@ -45,11 +54,10 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     # wrap field with div.input
     field = @t.content_tag(:div, field_with_span, :class => "input")
 
+    # get div class
+    div_class = "clearfix"
+    div_class << " error" if has_errors
     # wraps in appropriate div.clearfix
-    unless has_errors
-      @t.content_tag(:div, label(method) + field, :class => "clearfix")
-    else
-      @t.content_tag(:div, label(method) + field, :class => "clearfix error")
-    end
+    @t.content_tag(:div, label(method) + field, :class => div_class)
   end
 end
