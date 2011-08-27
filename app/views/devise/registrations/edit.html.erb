@@ -4,7 +4,6 @@
 <h2>Ваш аккаунт, <%= current_user.name %></h2><br />
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%# devise_error_messages! %>
 
   <%= f.text_field :name %></p>
   <%= f.email_field :email %></p>
