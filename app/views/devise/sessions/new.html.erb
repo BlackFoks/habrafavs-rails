@@ -1,17 +1,35 @@
-<h2>Sign in</h2>
+<div class="row">
+<div class="span8 columns offset4">
+
+<h2>Вход</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
 
-  <p><%= f.label :password %><br />
+  <%= f.email_field :email %></p>
   <%= f.password_field :password %></p>
 
   <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+    <div class="clearfix">
+      <div class="input">
+        <ul class="inputs-list">
+          <li><label for="user_remember_me">
+            <%= f.check_box :remember_me %>
+            <span>Запомнить меня</span>
+          </label></li>
+        </ul>
+      </div>
+    </div>
   <% end -%>
 
-  <p><%= f.submit "Sign in" %></p>
+  <div class="actions">
+    <%= f.submit "Войти", :class => "btn primary" %>
+  </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<h6>Другие действия:</h6>
+<div class="another actions">
+  <%= render :partial => "devise/shared/links" %>
+</div>
+
+</div>
+</div>
