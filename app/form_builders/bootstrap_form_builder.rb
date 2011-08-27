@@ -45,10 +45,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
 
       # add field
       field_with_span = orig_method.call(method, options)
-      # add span with error message
+      # add span with error or info message
       field_with_span += @t.content_tag(:span, @object.errors[method].first, :class => "help-inline")
     else
       field_with_span = orig_method.call(method, options)
+      field_with_span += @t.content_tag(:span, options[:info], :class => "help-inline") if options[:info]
     end
 
     # wrap field with div.input
