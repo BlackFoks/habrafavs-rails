@@ -6,6 +6,7 @@ ru:
         email: "E-mail:"
         password: "Пароль"
         password_confirmation: "Повторите пароль"
+        current_password: "Текущий пароль"
         
   activerecord:
     errors:
