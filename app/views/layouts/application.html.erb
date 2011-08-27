@@ -14,23 +14,28 @@
     <div class="container fixed">
       <h3><a href="#">Habrafavs</a></h3>
       <ul>
-        <li><a href="#">Главная</a></li>
+        <li><%= link_to "Главная", root_path %></li>
         <li><a href="#">Посты</a></li>
         <li><a href="#">Блоги</a></li>
       </ul>
       
+      
       <ul class="nav secondary-nav">
         <form action="#">
           <input type="text" placeholder="Поиск">
-        </form>      
+        </form>
+      <% if user_signed_in? %>
         <li class="menu">
-          <a href="#" class="menu">BlackFoks</a>
+          <a href="#" class="menu"><%= current_user.name %></a>
           <ul class="menu-dropdown">
-            <li><a href="#">Профиль</a></li>
+            <li><%= link_to "Профиль", edit_user_registration_path %></li>
             <li class="divider"></li>
-            <li><a href="#">Выход</a></li>
+            <li><%= link_to "Выход", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </li>
+      <% else %>
+        <li><%= link_to "Вход", new_user_session_path %></li>
+      <% end %>
       </ul>
     </div>
   </div>
