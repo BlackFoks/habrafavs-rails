@@ -41,5 +41,6 @@ module HabrafavsRails
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
   end
 end
