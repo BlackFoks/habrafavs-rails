@@ -1,41 +1,27 @@
 @import "global";
 
+$footer_p_color: rgba(255,255,255,.8);
+$footer_p_shadow: rgba(0,0,0,0.3);
+
 footer {
-  height: $footer_height;
   margin-top: -$footer_height;
-  // background
+  padding: 45px 0;
+  @include box-shadow($shadow_light 0 10px 30px inset);
   background-color: #049cd9;
   background-repeat: no-repeat;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
-  background-image: -webkit-linear-gradient(#004D9F, #049cd9);
-  background-image: -moz-linear-gradient(#004D9F, #049cd9);
-  background-image: -o-linear-gradient(top, #004D9F, #049cd9);
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
-  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#004D9F', EndColorStr='#049cd9', GradientType=0);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#004D9F', EndColorStr='#049cd9', GradientType=0))";
-}
-
-div.inner {
-  background: transparent url(grid-18px.png) top center;
-  padding: 45px 0;
-  -webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-footer p {
-  color: #fff;
-  color: rgba(255,255,255,.8);
-  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
-  margin-bottom: 0;
-}
-
-footer p.right {
-  float: right;
-}
-
-footer p a,
-footer p a:hover {
-  color: #fff;
-  font-weight: bold;
+  @include background(image-url("grid-18px.png"), 
+                      linear-gradient(#004d9f, #049cd9));
+                      
+  p {
+    color: $footer_p_color;
+    text-shadow: 0 1px 1px $footer_p_shadow;
+    margin-bottom: 0;
+    
+    a, a:hover {
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    &.right { float: right; }
+  }
 }

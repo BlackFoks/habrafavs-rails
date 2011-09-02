@@ -1,2 +1,10 @@
+@import "compass/css3/box-shadow";
+@import "compass/css3/images";
+@import "compass/css3/border-radius";
+
+// colors
+$shadow_light: rgba(0, 0, 0, 0.3);
+
+// heights
 $topbar_height: 50px;
 $footer_height: 109px;
