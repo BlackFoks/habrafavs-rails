@@ -1,4 +1,10 @@
-.topbar-wrapper { margin-bottom: 50px; }
+@import "global";
+
+html, body { height: 100%; }
+.container { min-height: 100%; }
+#footer-placeholder { height: $footer_height;}
+#topbar-placeholder { height: $topbar_height;}
+
 .topbar form { margin-right: 8px; }
 
 .messages {

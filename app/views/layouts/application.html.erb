@@ -17,8 +17,8 @@
         <li><%= link_to "Главная", root_path %></li>
         <li><a href="#">Посты</a></li>
         <li><a href="#">Блоги</a></li>
-      </ul>      
-      
+      </ul>
+
       <ul class="nav secondary-nav">
         <form action="#">
           <input type="text" placeholder="Поиск">
@@ -41,9 +41,10 @@
 </div>
 
 <div class="container">
+  <div id="topbar-placeholder"></div>
   <div class="messages">
   <% if notice %>
-    <div class="row">      
+    <div class="row">
       <div class="alert-message info span6 columns offset10">
         <a class="close" href="#">×</a>
         <p><%= notice %></p>
@@ -55,12 +56,14 @@
       <div class="alert-message error span6 columns offset10">
         <a class="close" href="#">×</a>
         <p><%= alert %></p>
-      </div>      
+      </div>
     </div>
   <% end %>
   </div>
-  
+
   <%= yield %>
+
+  <div id="footer-placeholder"></div>
 </div>
 
 <footer>
@@ -70,7 +73,7 @@
       <p>
         Создано только благодаря <a href="http://habrahabr.ru">Хабрахабру</a>, а так же
         замечательному проекту <a href="#">bootstrap</a>.
-      </p>        
+      </p>
     </div>
   </div>
 </footer>

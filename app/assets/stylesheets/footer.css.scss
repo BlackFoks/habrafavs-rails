@@ -1,5 +1,8 @@
+@import "global";
+
 footer {
-  margin-top: 40px;
+  height: $footer_height;
+  margin-top: -$footer_height;
   // background
   background-color: #049cd9;
   background-repeat: no-repeat;
