@@ -1,29 +1,28 @@
+@import "global";
+
 .slider-wrapper {
   height: 240px;
-  background: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin: 5px 0 20px;
-}
-
-.slider-wrapper img {
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  @include box-shadow($shadow_light 0 0 10px);
+  
+  img {
+    @include border-radius(5px);
+  }
 }
 
 .signup-wrapper {
-  height: 200px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
+  height: 200px;  
   margin: 5px 0;
   padding: 20px 0;
-}
-
-.signup-wrapper p {
-  padding: 0 20px;
-}
-
-.signup-wrapper a {
-  margin: 18px auto 0;
-  display: block;
-  width: 170px;
-  text-align: center;
+  @include box-shadow($shadow_light 0 0 10px);
+  @include border-radius(5px);
+  
+  p { padding: 0 20px; }
+  a {
+    margin: 18px auto 0;
+    display: block;
+    width: 170px;
+    text-align: center;
+  }
 }
