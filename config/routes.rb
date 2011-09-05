@@ -4,6 +4,7 @@ HabrafavsRails::Application.routes.draw do
   resources :habrausers
 
   devise_for :users
+  resources :users, :only => :show
 
   get "home/index"
 

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="user-info span10 columns offset3">
+    <h2><%= @user.name %> <small>Pro</small></h2>
+    <hr />
+    <p>
+      <% @habrausers.each do |habrauser| %>
+        <span>Хабраюзер:</span>
+        <%= link_to habrauser.name, "http://#{habrauser.slug}.habrahabr.ru", 
+            :target => "_blank" %>
+      <% end %>
+      <% if @habrausers.empty? %>
+        <span>Вы еще не привязали к своему аккаунту свой аккаунт на хабре.</span>
+        <div>
+          <%= link_to "Привязать", '#', :class => "btn small" %>
+        </div>
+      <% end %>
+    </p>
+    
+    <br />
+    
+    <h3>Ваш аккаунт</h3>
+    <hr />
+    <p><span>Имя пользователя: </span><%= @user.name %></p>
+    <p><span>Текущий email: </span><%= @user.email %></p>
+    <p>
+      <%= link_to "Редактировать аккаунт", edit_user_registration_path, :class => "btn small" %>
+    </p>
+    
+  </div>
+</div>
