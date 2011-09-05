@@ -1,4 +1,8 @@
+# encoding: UTF-8
+
 class HabrausersController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /habrausers
   # GET /habrausers.json
   def index
@@ -40,11 +44,15 @@ class HabrausersController < ApplicationController
   # POST /habrausers
   # POST /habrausers.json
   def create
-    @habrauser = Habrauser.new(params[:habrauser])
+    @habrauser = Habrauser.new
+    @habrauser.user = current_user
+    @habrauser.name = params[:habrauser][:name]
+    @habrauser.slug = params[:habrauser][:slug]
 
     respond_to do |format|
       if @habrauser.save
-        format.html { redirect_to @habrauser, notice: 'Habrauser was successfully created.' }
+        format.html { redirect_to current_user,
+          notice: "Хабраюзер '#{@habrauser.name}' успешно привязан к вашему аккаунту." }
         format.json { render json: @habrauser, status: :created, location: @habrauser }
       else
         format.html { render action: "new" }

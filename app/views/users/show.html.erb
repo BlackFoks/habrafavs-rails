@@ -3,21 +3,18 @@
     <h2><%= @user.name %> <small>Pro</small></h2>
     <hr />
     <p>
+      <span>Хабраюзеры:</span>
       <% @habrausers.each do |habrauser| %>
-        <span>Хабраюзер:</span>
-        <%= link_to habrauser.name, "http://#{habrauser.slug}.habrahabr.ru", 
-            :target => "_blank" %>
+        <div><%= link_to habrauser.name, habrauser.habraurl, :target => "_blank" %></div>
       <% end %>
+
       <% if @habrausers.empty? %>
-        <span>Вы еще не привязали к своему аккаунту свой аккаунт на хабре.</span>
-        <div>
-          <%= link_to "Привязать", '#', :class => "btn small" %>
-        </div>
+        <span>Вы еще не привязали к своему аккаунту ни одного хабраюзера.</span>
       <% end %>
     </p>
-    
+    <div><%= link_to "Привязать", new_habrauser_path, :class => "btn small" %></div>
     <br />
-    
+
     <h3>Ваш аккаунт</h3>
     <hr />
     <p><span>Имя пользователя: </span><%= @user.name %></p>
@@ -25,6 +22,6 @@
     <p>
       <%= link_to "Редактировать аккаунт", edit_user_registration_path, :class => "btn small" %>
     </p>
-    
+
   </div>
 </div>
