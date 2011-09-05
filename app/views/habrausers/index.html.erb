@@ -1,0 +1,27 @@
+<h1>Listing habrausers</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Slug</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @habrausers.each do |habrauser| %>
+  <tr>
+    <td><%= habrauser.user %></td>
+    <td><%= habrauser.name %></td>
+    <td><%= habrauser.slug %></td>
+    <td><%= link_to 'Show', habrauser %></td>
+    <td><%= link_to 'Edit', edit_habrauser_path(habrauser) %></td>
+    <td><%= link_to 'Destroy', habrauser, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Habrauser', new_habrauser_path %>

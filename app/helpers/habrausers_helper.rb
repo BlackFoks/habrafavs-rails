@@ -1,0 +1,2 @@
+module HabrausersHelper
+end
