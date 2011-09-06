@@ -27,7 +27,7 @@
         <li class="menu">
           <a href="#" class="menu"><%= current_user.name %></a>
           <ul class="menu-dropdown">
-            <li><%= link_to "Профиль", edit_user_registration_path %></li>
+            <li><%= link_to "Профиль", current_user %></li>
             <li class="divider"></li>
             <li><%= link_to "Выход", destroy_user_session_path, :method => :delete %></li>
           </ul>
