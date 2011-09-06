@@ -47,7 +47,7 @@ class HabrausersController < ApplicationController
     @habrauser = Habrauser.new
     @habrauser.user = current_user
     @habrauser.name = params[:habrauser][:name]
-    @habrauser.slug = params[:habrauser][:slug]
+    @habrauser.slug = @habrauser.name_to_slug
 
     respond_to do |format|
       if @habrauser.save
