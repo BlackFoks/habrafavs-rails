@@ -1,5 +1,8 @@
 ru:
   helpers:
+    submit:
+      habrauser:
+        create: "Добавить хабраюзера"
     label:
       user:
         name: "Логин"
@@ -7,6 +10,9 @@ ru:
         password: "Пароль"
         password_confirmation: "Повторите пароль"
         current_password: "Текущий пароль"
+      habrauser:
+        name: "Логин на Хабре"
+        slug: "Поддомен на Хабре"
         
   activerecord:
     errors:
@@ -21,6 +27,12 @@ ru:
               blank: "не может быть пустым"
               confirmation: "Пароли должны быть одинаковые"
               too_short: "слишком короткий"
+        habrauser:
+          attributes:
+            name:
+              blank: "не может быть пустым"
+            slug:
+              blank: "не может быть пустым"
   
   errors:
     messages:
