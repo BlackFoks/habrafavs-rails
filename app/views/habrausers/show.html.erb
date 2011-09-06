@@ -1,20 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @habrauser.user %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @habrauser.name %>
-</p>
-
-<p>
-  <b>Slug:</b>
-  <%= @habrauser.slug %>
-</p>
-
-
-<%= link_to 'Edit', edit_habrauser_path(@habrauser) %> |
-<%= link_to 'Back', habrausers_path %>
+<div class="modal-header">
+  <h3><%= @habrauser.name %></h3>
+</div>
+<div class="modal-body">
+  <p>Поддомен на хабре: <%= @habrauser.slug %></p>
+</div>
+<div class="modal-footer">
+  <%= link_to "Удалить", @habrauser, class: 'btn danger', method: :delete,
+    confirm: "Вы уверены в том, что хотите удалить хабраюзера '#{@habrauser.name}'?" %>
+  <%= link_to "Личный кабинет на Хабре", @habrauser.habraurl, class: 'btn primary', 
+    target: '_blank' %>
+</div>

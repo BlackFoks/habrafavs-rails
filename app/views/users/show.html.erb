@@ -5,7 +5,7 @@
     <p>
       <span>Хабраюзеры:</span>
       <% @habrausers.each do |habrauser| %>
-        <div><%= link_to habrauser.name, habrauser.habraurl, :target => "_blank" %></div>
+        <div><%= link_to habrauser.name, habrauser, rel: "facebox" %></div>
       <% end %>
 
       <% if @habrausers.empty? %>

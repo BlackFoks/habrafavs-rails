@@ -20,7 +20,7 @@ class HabrausersController < ApplicationController
     @habrauser = Habrauser.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render layout: false }
       format.json { render json: @habrauser }
     end
   end
@@ -84,7 +84,7 @@ class HabrausersController < ApplicationController
     @habrauser.destroy
 
     respond_to do |format|
-      format.html { redirect_to habrausers_url }
+      format.html { redirect_to current_user }
       format.json { head :ok }
     end
   end
