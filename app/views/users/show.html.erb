@@ -9,7 +9,7 @@
       <% end %>
 
       <% if @habrausers.empty? %>
-        <span>Вы еще не привязали к своему аккаунту ни одного хабраюзера.</span>
+        <div>Вы еще не привязали к своему аккаунту ни одного хабраюзера.</div>
       <% end %>
     </p>
     <div><%= link_to "Привязать", new_habrauser_path, :class => "btn small" %></div>
