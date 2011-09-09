@@ -31,5 +31,9 @@ gem 'facebox-rails'
 
 group :test do
   # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'turn', :require => false  
+end
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.6.1"
 end
