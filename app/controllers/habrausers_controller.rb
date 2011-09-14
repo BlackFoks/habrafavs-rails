@@ -6,7 +6,7 @@ class HabrausersController < ApplicationController
   # GET /habrausers
   # GET /habrausers.json
   def index
-    @habrausers = Habrauser.all
+    @habrausers = current_user.habrausers
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,15 @@ class HabrausersController < ApplicationController
   # GET /habrausers/1
   # GET /habrausers/1.json
   def show
-    @habrauser = Habrauser.find(params[:id])
+    begin
+      @habrauser = Habrauser.find(params[:id])
+    rescue Exception => e
+      return redirect_to current_user
+    end
+
+    unless @habrauser.user == current_user
+      return redirect_to current_user
+    end
 
     respond_to do |format|
       format.html { render layout: false }
