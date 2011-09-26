@@ -20,6 +20,8 @@ end
 gem 'jquery-rails'
 gem 'facebox-rails'
 
+gem 'habraparser', :git => "git://github.com/BlackFoks/habraparser.git"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
