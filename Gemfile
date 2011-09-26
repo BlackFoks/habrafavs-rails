@@ -21,6 +21,7 @@ gem 'jquery-rails'
 gem 'facebox-rails'
 
 gem 'habraparser', :git => "git://github.com/BlackFoks/habraparser.git"
+gem "delayed_job", "~> 2.1.4"
 
 # Use unicorn as the web server
 # gem 'unicorn'

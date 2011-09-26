@@ -27,6 +27,19 @@ scss:scaffold:
 - --skip
 - --skip-namespace
 - --old-style-hash
+rspec:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+factory_girl:model:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --dir=
 active_record:devise:
 - --force
 - --pretend
@@ -76,6 +89,11 @@ mongoid:devise:
 - --skip
 - --skip-namespace
 - --old-style-hash
+delayed_job:
+- --force
+- --pretend
+- --quiet
+- --skip
 coffee:assets:
 - --force
 - --pretend
@@ -102,6 +120,8 @@ assets:
 - --javascript-engine=
 - --stylesheet-engine=
 controller:
+- --controller-specs
+- --view-specs
 - --force
 - --pretend
 - --quiet
@@ -121,6 +141,7 @@ generator:
 - --old-style-hash
 - --namespace
 helper:
+- --helper-specs
 - --force
 - --pretend
 - --quiet
@@ -129,6 +150,9 @@ helper:
 - --old-style-hash
 - --test-framework=
 integration_test:
+- --request-specs
+- --webrat
+- --webrat-matchers
 - --force
 - --pretend
 - --quiet
@@ -219,6 +243,8 @@ resource:
 - --test-framework=
 - --fixture
 - --fixture-replacement=
+- --controller-specs
+- --view-specs
 - --template-engine=
 - --helper
 - --assets
@@ -240,6 +266,14 @@ scaffold:
 - --test-framework=
 - --fixture
 - --fixture-replacement=
+- --singleton
+- --controller-specs
+- --view-specs
+- --webrat
+- --webrat-matchers
+- --helper-specs
+- --routing-specs
+- --integration-tool=
 - --template-engine=
 - --helper
 - --force
@@ -255,6 +289,15 @@ scaffold:
 - --scaffold-controller=
 - --assets
 scaffold_controller:
+- --singleton
+- --controller-specs
+- --view-specs
+- --webrat
+- --webrat-matchers
+- --helper-specs
+- --routing-specs
+- --integration-tool=
+- --request-specs
 - --force
 - --pretend
 - --quiet
@@ -274,6 +317,72 @@ session_migration:
 - --skip-namespace
 - --old-style-hash
 - --orm=
+test_unit:controller:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:helper:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:integration:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:mailer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:model:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --fixture
+- --fixture-replacement=
+test_unit:observer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:performance:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:plugin:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:scaffold:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --force-plural
 mailer:
 - --force
 - --pretend
