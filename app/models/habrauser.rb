@@ -9,6 +9,6 @@ class Habrauser < ActiveRecord::Base
   end
 
   def name_to_slug
-    self.name.downcase
+    Habr::Helper.name_to_slug(self.name) #self.name.downcase
   end
 end
