@@ -24,3 +24,8 @@ Factory.define :post do |f|
   f.published_at { 7.hours.ago }
   f.author
 end
+
+Factory.define :fav do |f|
+  f.habrauser
+  f.post
+end

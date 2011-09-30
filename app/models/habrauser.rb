@@ -1,5 +1,7 @@
 class Habrauser < ActiveRecord::Base
   belongs_to :user
+  has_many :favs
+
   after_initialize :init
 
   validates_presence_of :name, :slug

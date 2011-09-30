@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930031530) do
+ActiveRecord::Schema.define(:version => 20110930064442) do
 
   create_table "blogs", :force => true do |t|
     t.string   "slug"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(:version => 20110930031530) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "favs", :force => true do |t|
+    t.integer  "habrauser_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favs", ["habrauser_id"], :name => "index_favs_on_habrauser_id"
+  add_index "favs", ["post_id"], :name => "index_favs_on_post_id"
 
   create_table "habrausers", :force => true do |t|
     t.integer  "user_id"

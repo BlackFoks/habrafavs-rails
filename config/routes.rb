@@ -1,4 +1,6 @@
 HabrafavsRails::Application.routes.draw do
+  resources :favs
+
   resources :posts
 
   resources :blogs
