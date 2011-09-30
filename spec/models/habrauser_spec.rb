@@ -8,6 +8,7 @@ describe Habrauser do
   its(:slug) { should == 'alizar'}
   its(:user) { should_not be_nil }
   its(:habraurl) { should == "http://alizar.habrahabr.ru" }
+  its(:status) { should == :pending }
 
   it "should not be valid without name" do
     huser = Factory.build(:habrauser, name: '', slug: 'xaoccps')
@@ -44,5 +45,15 @@ describe Habrauser do
     second_huser.save
 
     second_huser.should have(1).error_on(:name)
+  end
+
+  it "should load :status as a symbol from database" do
+    huser = Factory(:habrauser)
+    huser.status.should == :pending
+    huser.status = :processing
+    huser.save
+
+    loaded_huser = Habrauser.find huser.id
+    loaded_huser.status.should == :processing
   end
 end

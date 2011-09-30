@@ -1,8 +1,17 @@
 class Habrauser < ActiveRecord::Base
   belongs_to :user
+  after_initialize :init
 
   validates_presence_of :name, :slug
   validates_uniqueness_of :name, :slug
+
+  def init
+    if self.status
+      self.status = self.status.intern
+    else
+      self.status ||= :pending
+    end
+  end
 
   def habraurl
     "http://#{self.slug}.habrahabr.ru"
