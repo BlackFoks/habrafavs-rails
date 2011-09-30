@@ -11,3 +11,8 @@ Factory.define :habrauser do |f|
   f.sequence(:name) { |n| "HabraUser#{n}" }
   f.slug { |u| u.name_to_slug }
 end
+
+Factory.define :blog do |f|
+  f.sequence(:slug) { |n| "blog#{n}_slug" }
+  f.sequence(:name) { |n| "Habrablog ##{n}" }
+end
