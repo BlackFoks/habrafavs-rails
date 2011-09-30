@@ -1,4 +1,6 @@
 HabrafavsRails::Application.routes.draw do
+  resources :posts
+
   resources :blogs
 
   # get "users/show"

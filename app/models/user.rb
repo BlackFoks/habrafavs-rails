@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name, :email, :case_sensitive => false
   
   has_many :habrausers
+  has_many :posts
 end
