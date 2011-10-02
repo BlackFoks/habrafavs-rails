@@ -2,7 +2,7 @@
 
 <p>
   <b>Blog:</b>
-  <%= @post.blog %>
+  <%= @post.blog.name %>
 </p>
 
 <p>
@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <b>Content:</b>
-  <%= @post.content %>
+  <b>Content:</b><br />
+  <%= @post.content.html_safe %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <b>Author:</b>
-  <%= @post.author %>
+  <%= @post.author.name %>
 </p>
 
 
