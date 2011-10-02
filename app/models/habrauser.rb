@@ -2,17 +2,15 @@ class Habrauser < ActiveRecord::Base
   belongs_to :user
   has_many :favs
 
-  after_initialize :init
-
   validates_presence_of :name, :slug
   validates_uniqueness_of :name, :slug
 
+  after_initialize :init
+  after_save :fetch
+
   def init
-    if self.status
-      self.status = self.status.intern
-    else
-      self.status ||= :pending
-    end
+    self.status ||= :pending
+    self.status = self.status.intern
   end
 
   def habraurl
@@ -20,7 +18,19 @@ class Habrauser < ActiveRecord::Base
   end
 
   def name_to_slug
-    Habr::Helper.name_to_slug(self.name) #self.name.downcase
+    Habr::Helper.name_to_slug self.name
+  end
+
+  def fetch
+    return if self.status != :pending
+
+    huser = Habr::User.find self.slug
+    huser.favs.pages.each do |page|
+      Fav.delay.load_from_page(self, page)
+    end
+
+    self.status = :processing
+    self.save
   end
 
   def self.find_or_save(opts={})
