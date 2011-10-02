@@ -2,31 +2,19 @@ require 'spec_helper'
 
 describe "posts/index.html.erb" do
   before(:each) do
+    @blog = stub_model(Blog, :slug => "ror", :name => "Ruby on Rails")
+    @author = stub_model(Habrauser, :slug => "alizar", :name => "Alizar")
+
     assign(:posts, [
-      stub_model(Post,
-        :blog => nil,
-        :title => "Title",
-        :content => "Content",
-        :author => nil
-      ),
-      stub_model(Post,
-        :blog => nil,
-        :title => "Title",
-        :content => "Content",
-        :author => nil
-      )
+      stub_model(Post, :blog => @blog, :title => "Title", :author => @author),
+      stub_model(Post, :blog => @blog, :title => "Title", :author => @author)
     ])
   end
 
   it "renders a list of posts" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => nil.to_s, :count => 2
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Title".to_s, :count => 2
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Content".to_s, :count => 2
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td>a", :text => @blog.name, :count => 2
+    assert_select "tr>td>a", :text => "Title".to_s, :count => 2
+    assert_select "tr>td>a", :text => @author.name, :count => 2
   end
 end
