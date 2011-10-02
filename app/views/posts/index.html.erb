@@ -4,22 +4,18 @@
   <tr>
     <th>Blog</th>
     <th>Title</th>
-    <th>Content</th>
     <th>Published at</th>
     <th>Author</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.blog %></td>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
+    <td><%= link_to post.blog.name, post.blog %></td>
+    <td><%= link_to post.title, post %></td>
     <td><%= post.published_at %></td>
-    <td><%= post.author %></td>
-    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to post.author.name, post.author %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
