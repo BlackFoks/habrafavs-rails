@@ -11,8 +11,8 @@
 
 <% @favs.each do |fav| %>
   <tr>
-    <td><%= fav.user %></td>
-    <td><%= fav.post %></td>
+    <td><%= link_to fav.habrauser.name, fav.habrauser %></td>
+    <td><%= link_to fav.post.title, fav.post %></td>
     <td><%= link_to 'Show', fav %></td>
     <td><%= link_to 'Edit', edit_fav_path(fav) %></td>
     <td><%= link_to 'Destroy', fav, confirm: 'Are you sure?', method: :delete %></td>
