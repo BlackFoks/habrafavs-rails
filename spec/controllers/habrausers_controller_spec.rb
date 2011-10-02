@@ -75,7 +75,7 @@ describe HabrausersController do
 
       it "should redirect to the current user's profile" do
         post :create, habrauser: valid_attributes
-        response.should redirect_to(@user)
+        response.should redirect_to(fetch_habrauser_path(@user))
       end
     end
 
