@@ -7,6 +7,7 @@ HabrafavsRails::Application.routes.draw do
 
   # get "users/show"
 
+  get 'habrausers/:id/fetch' => 'habrausers#fetch', :as => :fetch_habrauser
   resources :habrausers
 
   devise_for :users

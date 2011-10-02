@@ -59,7 +59,7 @@ class HabrausersController < ApplicationController
 
     respond_to do |format|
       if @habrauser.save
-        format.html { redirect_to current_user,
+        format.html { redirect_to fetch_habrauser_path(@habrauser),
           notice: "Хабраюзер '#{@habrauser.name}' успешно привязан к вашему аккаунту." }
         format.json { render json: @habrauser, status: :created, location: @habrauser }
       else
@@ -90,6 +90,20 @@ class HabrausersController < ApplicationController
   def destroy
     @habrauser = Habrauser.find(params[:id])
     @habrauser.destroy
+
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.json { head :ok }
+    end
+  end
+
+  # POST /habrausers/1/fetch
+  # POST /habrausers/1/fetch.json
+  def fetch
+    @habrauser = Habrauser.find(params[:id])
+    @habrauser.fetch
+
+    flash.keep
 
     respond_to do |format|
       format.html { redirect_to current_user }

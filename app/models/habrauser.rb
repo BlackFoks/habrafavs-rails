@@ -6,7 +6,6 @@ class Habrauser < ActiveRecord::Base
   validates_uniqueness_of :name, :slug
 
   after_initialize :init
-  after_save :fetch
 
   def init
     self.status ||= :pending
