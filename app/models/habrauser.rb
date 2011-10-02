@@ -22,4 +22,13 @@ class Habrauser < ActiveRecord::Base
   def name_to_slug
     Habr::Helper.name_to_slug(self.name) #self.name.downcase
   end
+
+  def self.find_or_save(opts={})
+    slug = opts[:slug] || Habr::Helper.name_to_slug(opts[:name])
+    name = opts[:name] || opts[:slug]
+
+    habrauser = Habrauser.where(["slug = ?", slug]).first
+    habrauser ||= Habrauser.create(:slug => slug, :name => name)
+  end
+
 end
