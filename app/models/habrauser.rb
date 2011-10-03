@@ -31,13 +31,4 @@ class Habrauser < ActiveRecord::Base
     self.status = :processing
     self.save
   end
-
-  def self.find_or_save(opts={})
-    slug = opts[:slug] || Habr::Helper.name_to_slug(opts[:name])
-    name = opts[:name] || opts[:slug]
-
-    habrauser = Habrauser.where(["slug = ?", slug]).first
-    habrauser ||= Habrauser.create(:slug => slug, :name => name)
-  end
-
 end
