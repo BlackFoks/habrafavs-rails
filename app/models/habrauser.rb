@@ -1,3 +1,13 @@
+# encoding: UTF-8
+
+# Habrauser#status:
+#  * nil - не был выставлен, т.е. добавлен автоматически как автор топика,
+#          а не по желанию пользователя
+#  * :pending - добавлен пользователем, ожидает обработки
+#  * :processing - обрабатывается
+#  * :synced - прошел первоначальную обработку
+#  * :syncing - синхронизируется повторно, в целях получения недавно добавленных закладок
+
 class Habrauser < ActiveRecord::Base
   belongs_to :user
   has_many :favs
@@ -8,8 +18,9 @@ class Habrauser < ActiveRecord::Base
   after_initialize :init
 
   def init
-    self.status ||= :pending
-    self.status = self.status.intern
+    if self.status
+      self.status = self.status.intern
+    end
   end
 
   def habraurl

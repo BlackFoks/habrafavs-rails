@@ -8,7 +8,8 @@ describe Habrauser do
   its(:slug) { should == 'alizar'}
   its(:user) { should_not be_nil }
   its(:habraurl) { should == "http://alizar.habrahabr.ru" }
-  its(:status) { should == :pending }
+  its(:status) { should be_nil }
+  its(:favs) { should be_empty }
 
   it "should not be valid without name" do
     huser = Factory.build(:habrauser, name: '', slug: 'xaoccps')
@@ -47,13 +48,35 @@ describe Habrauser do
     second_huser.should have(1).error_on(:name)
   end
 
-  it "should load :status as a symbol from database" do
-    huser = Factory(:habrauser)
-    huser.status.should == :pending
-    huser.status = :processing
-    huser.save
+  describe "#status" do
+    it "should be nil after creation" do
+      huser = Factory(:habrauser, name: 'Alizar')
+      huser.status.should be_nil
+    end
 
-    loaded_huser = Habrauser.find huser.id
-    loaded_huser.status.should == :processing
+    it "should return #status value as a symbol" do
+      huser = Factory(:habrauser, :status => :processing)
+
+      loaded_huser = Habrauser.find huser.id
+      loaded_huser.status.should == :processing
+    end
+  end
+
+  describe "#fetch" do
+    it "should fetch" do
+      huser = Factory(:habrauser, :slug => 'alizar', :status => :pending)
+      # prevent loading favs from page
+      Fav.stub!(:load_from_page).and_return(nil)
+
+      huser.fetch
+
+      huser.status.should == :processing
+    end
+
+    it "should fetch only when #status is :pending" do
+      huser = Factory(:habrauser)
+      huser.fetch
+      huser.status.should be_nil
+    end
   end
 end
